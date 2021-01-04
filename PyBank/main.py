@@ -7,7 +7,7 @@ csvpath = os.path.join("..", "Resources","budget_data.csv" )
 
 # Set variables
 month_count = 0
-Total = 0
+Total_P/L = 0
 Difference = 0
 Max_Difference = 0
 Min_Difference = 0
@@ -16,3 +16,10 @@ Min_Difference = 0
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     csv_header = next(csvreader)
+
+# Calculate analysis
+for i in csvreader:
+    # Total months
+    month_count = month_count + 1
+
+    # Total Profits/Losses
