@@ -13,8 +13,6 @@ Max_Difference = 0
 Min_Difference = 0
 initial_profit = 0
 
-#List to store 
-
 # Open and read csv
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
@@ -29,14 +27,15 @@ for i in csvreader:
     Total = i[1]
     Total_P/L += int(Total)
 
-    # Average Profit/Loss Change
-
-
-
     # Set Profit/Loss Change Variables
     New_profit = int(Total)
     Difference = New_profit - initial_profit
-   
+    Monthly_Change = New_profit - initial_profit
+    Difference_Total = Difference_Total + Monthly_Change
+
+    # Average Profit/Loss Change
+    Avg_Profit_Change = (Difference_Total/month_count)
+
     # Greatest increase in profits over period
     if Max_Difference < Difference:
             Max_Difference = Difference
