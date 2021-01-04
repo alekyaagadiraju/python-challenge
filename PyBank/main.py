@@ -13,6 +13,10 @@ DiffMax = 0
 DiffMin = 0
 initial_profit = 0
 
+# Create lists for Profit total and Average Profit change
+Total_Profit = []
+Difference_Total = []
+
 
 # Open and read csv
 with open(csvpath) as csvfile:
@@ -30,6 +34,9 @@ with open(csvpath) as csvfile:
         New_profit = int(Total)
         Diff = New_profit - initial_profit
         Monthly_Change = New_profit - initial_profit
+
+    # Total Profit List Change
+        Total_Profit.append(int(Total))
         
     # Greatest increase in profits over period
         if DiffMax < Diff:
@@ -44,11 +51,15 @@ with open(csvpath) as csvfile:
     # Set New Profit to get changes
         initial_profit = New_profit
 
+# Sum of Total Profit/Loss
+Sum_Profit = sum(Total_Profit)
+
 
 # Print Financial Analysis
 print("Financial Analysis")
 print("------------------------------------")
 print(f'Total Months : {month_count}')
+print(f'Total: $ {Sum_Profit}')
 print(f'Greatest Increase in Profits: {DiffMaxDate} : ($ {DiffMax})')
 print(f'Greatest Decrease in Profits: {DiffMinDate} : ($ {DiffMin})')
 
