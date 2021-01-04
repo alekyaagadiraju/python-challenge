@@ -23,3 +23,5 @@ for i in csvreader:
     month_count = month_count + 1
 
     # Total Profits/Losses
+    Total = i[1]
+    Total_P/L += int(Total)
