@@ -12,6 +12,7 @@ Difference = 0
 Max_Difference = 0
 Min_Difference = 0
 initial_profit = 0
+Difference_Total = 0
 
 # Open and read csv
 with open(csvpath) as csvfile:
@@ -48,3 +49,12 @@ for i in csvreader:
 
     # Set New Profit to get changes
     initial_profit = New_profit
+
+# Print Financial Analysis
+print("Financial Analysis")
+print("------------------------------------")
+print(f'Total Months : {month_count}')
+print(f'Total: $ {Total}')x
+print(f'Average Change: {Avg_Profit_Change}')
+print(f'Greatest Increase in Profits: {DiffMaxDate} : ($ {Max_Difference})')
+print(f'Greatest Decrease in Profits: {DiffMinDate} : ($ {Min_Difference})')
