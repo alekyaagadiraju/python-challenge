@@ -11,6 +11,9 @@ Total_P/L = 0
 Difference = 0
 Max_Difference = 0
 Min_Difference = 0
+initial_profit = 0
+
+#List to store 
 
 # Open and read csv
 with open(csvpath) as csvfile:
@@ -25,3 +28,24 @@ for i in csvreader:
     # Total Profits/Losses
     Total = i[1]
     Total_P/L += int(Total)
+
+    # Average Profit/Loss Change
+
+
+
+    # Set Profit/Loss Change Variables
+    New_profit = int(Total)
+    Difference = New_profit - initial_profit
+   
+    # Greatest increase in profits over period
+    if Max_Difference < Difference:
+            Max_Difference = Difference
+            DiffMaxDate = month
+
+    # Greatest decrease in losses over period
+    if Min_Difference > Difference:
+            Min_Difference = Difference
+            DiffMinDate = month
+
+    # Set New Profit to get changes
+    initial_profit = New_profit
