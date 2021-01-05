@@ -12,6 +12,7 @@ Difference = 0
 Diff_Max = 0
 Diff_Min = 0
 initial_profit = 0
+Change = 0 
 
 # Create lists for Profit total and Average Profit change
 Total_Profit = []
@@ -34,7 +35,7 @@ with open(csvpath) as csvfile:
         New_profit = int(Total)
         Diff = New_profit - initial_profit
         Difference_Total.append((Diff))
-
+        
     # Total Profit List Change
         Total_Profit.append(int(Total))
 
@@ -42,16 +43,13 @@ with open(csvpath) as csvfile:
     # Greatest increase in profits over period
         if Diff_Max < Diff:
             Diff_Max = Diff
-            DiffMaxDate = month
-
-            
+            DiffMaxDate = month     
 
     # Greatest decrease in losses over period
         if Diff_Min > Diff:
             Diff_Min = Diff
             DiffMinDate = month
 
-    
 
     # Set New Profit to get changes
         initial_profit = New_profit
@@ -60,7 +58,7 @@ with open(csvpath) as csvfile:
 Sum_Profit = sum(Total_Profit)
 
 #Average of Monthly Changes
-Avg_Profit_Change = sum(Difference_Total)/ len(Difference_Total)
+Avg_Profit_Change = (sum(Difference_Total) - Difference_Total[0])/ (len(Difference_Total)-1)
 
 # Print Financial Analysis
 print("Financial Analysis")
